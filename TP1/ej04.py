@@ -25,8 +25,8 @@ def transaccion(total_compra: int, dinero_recibido:int) -> int:
     multiplo de 10
     """
     vuelto = []
-    billeteee = []
-    billetes = (5000, 1000, 500, 200, 100, 50, 10)
+    billetes = []
+    tupla_billetes = (5000, 1000, 500, 200, 100, 50, 10)
     resto = dinero_recibido - total_compra
     
     
@@ -35,12 +35,12 @@ def transaccion(total_compra: int, dinero_recibido:int) -> int:
     elif total_compra % 10 != 0:
         pass
     else:
-        for billete in billetes:
-            if resto >= billete:
-                vuelto.append(resto//billete)
-                billeteee.append(billete)
-                resto = resto % billete
-    return vuelto, billeteee
+        for valor in tupla_billetes:
+            if resto >= valor:
+                vuelto.append(resto//valor)
+                billetes.append(valor)
+                resto = resto % valor
+    return vuelto, billetes
 
                
 print(transaccion(12500, 20000))            
