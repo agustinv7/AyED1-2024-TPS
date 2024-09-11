@@ -6,38 +6,70 @@ Retornar True o False si la fecha es correcta o no
 """
 #a la funcion le paso 3 parámetros correspondientes del dia mes y año
 def verificar_fecha_valida(dia: int, mes: int, anio: int) -> int:
-    if dia in dias and mes in meses: 
-            if (meses_con_31_dias(dia, mes)) or (meses_con_30_dias(dia, mes)) or () == True:
-                return True
+    if anio in anios_bisiestos:
+        if (
+            febrero(dia, mes, anio) 
+            or meses_con_31_dias(dia, mes) 
+            or meses_con_30_dias(dia, mes) == True
+        ):
+            return True
+        else:
+            return False
     elif anio in anios:
-        
-            
+        if (
+            febrero(dia, mes, anio) 
+            or meses_con_31_dias(dia, mes) 
+            or meses_con_30_dias(dia, mes) == True
+        ):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+                
 def meses_con_31_dias(dia, mes):
-    if dias == 31 and mes == (1 or 3 or 5 or 7 or 8 or 10 or 12):
+    if dia in dias_31 and mes in meses_31:
         return True
     else:
         return False
 
 
 def meses_con_30_dias(dia, mes):
-    if dias == 30 and mes == (4 or 6 or 9 or 11):
+    if dia in dias_30 and mes in meses_30:
         return True
     else:
         return False
     
     
-def febrero_biciesto(dia, mes):
-    if dia > 0 and dia < 30 and mes == 2:
-        return True
+def febrero(dia:int, mes:int, anio:int) -> bool:
+    if anio in anios_bisiestos:
+        if dia > 0 and dia < 30 and mes == 2:
+            return True
+        else:
+            return False
+    elif anio in anios:
+        if dia > 0 and dia < 29 and mes == 2:
+            return True
+        else:
+            return False
     else:
         return False
-    
+        
+
+def menu():
+    while True:
+        print(verificar_fecha_valida(29, 2, 2009))
+        break
+    return None
     
 
-dias = tuple(range(1, 32))
-meses = tuple(range(1, 13))
+dias_30 = tuple(range(1, 31))
+dias_31 = tuple(range(1, 32))
+meses_30 = (4, 6, 9, 11)
+meses_31 = (1, 3, 5, 7, 8, 10, 12)
 anios = tuple(range(1, 2200))
 anios_bisiestos = tuple(range(1584, 2100, 4))
 
 
-print(verificar_fecha_valida(12, 12, 2004))
+menu()
