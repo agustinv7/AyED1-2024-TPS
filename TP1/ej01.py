@@ -8,7 +8,6 @@ y mostrar el maximo hallado o un mensaje informativo si este no existe
 # esta funcion recibe 3 parámetros, dentro de la lista están los 3 numeros
 
 
-
 def mayor_numero(a: int, b: int, c: int) -> None:
     lista = [a, b, c]
     lista.sort()

@@ -10,6 +10,6 @@ vos  comenzando  desde  1.  Por  ejemplo  10  es  un  número  triangular  porqu
 obtiene sumando 1+2+3+4
 """
 
-#ejercicio a
-lambda_oblongo = lambda x=5: x*(x+1) >= 30
-#ejercicio b no se como hacerlo
+# ejercicio a
+lambda_oblongo = lambda x=5: x * (x + 1) >= 30
+# ejercicio b no se como hacerlo

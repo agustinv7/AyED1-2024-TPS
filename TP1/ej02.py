@@ -4,12 +4,14 @@ y verificar si corresponde a una fecha válida
 Debe tenerse en cuenta la cantidad de dias de cada mes incluyendo los bisiestos
 Retornar True o False si la fecha es correcta o no
 """
-#a la funcion le paso 3 parámetros correspondientes del dia mes y año
+
+
+# a la funcion le paso 3 parámetros correspondientes del dia mes y año
 def verificar_fecha_valida(dia: int, mes: int, anio: int) -> int:
     if anio in anios_bisiestos:
         if (
-            febrero(dia, mes, anio) 
-            or meses_con_31_dias(dia, mes) 
+            febrero(dia, mes, anio)
+            or meses_con_31_dias(dia, mes)
             or meses_con_30_dias(dia, mes) == True
         ):
             return True
@@ -17,8 +19,8 @@ def verificar_fecha_valida(dia: int, mes: int, anio: int) -> int:
             return False
     elif anio in anios:
         if (
-            febrero(dia, mes, anio) 
-            or meses_con_31_dias(dia, mes) 
+            febrero(dia, mes, anio)
+            or meses_con_31_dias(dia, mes)
             or meses_con_30_dias(dia, mes) == True
         ):
             return True
@@ -27,7 +29,7 @@ def verificar_fecha_valida(dia: int, mes: int, anio: int) -> int:
     else:
         return False
 
-                
+
 def meses_con_31_dias(dia, mes):
     if dia in dias_31 and mes in meses_31:
         return True
@@ -40,9 +42,9 @@ def meses_con_30_dias(dia, mes):
         return True
     else:
         return False
-    
-    
-def febrero(dia:int, mes:int, anio:int) -> bool:
+
+
+def febrero(dia: int, mes: int, anio: int) -> bool:
     if anio in anios_bisiestos:
         if dia > 0 and dia < 30 and mes == 2:
             return True
@@ -55,14 +57,14 @@ def febrero(dia:int, mes:int, anio:int) -> bool:
             return False
     else:
         return False
-        
+
 
 def menu():
     while True:
         print(verificar_fecha_valida(29, 2, 2009))
         break
     return None
-    
+
 
 dias_30 = tuple(range(1, 31))
 dias_31 = tuple(range(1, 32))

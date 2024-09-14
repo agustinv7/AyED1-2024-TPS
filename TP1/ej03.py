@@ -9,11 +9,11 @@ grama para verificar el comportamiento de la función
 
 
 def control_de_gastos_viajes(viajes: int, tarifa: int) -> float:
-    #la funcion ingresa 2 parametros de tipo entero y devuelve un resultado de tipo flotante
+    # la funcion ingresa 2 parametros de tipo entero y devuelve un resultado de tipo flotante
     while True:
-        #utilizo un while true para ingresar al bucle
+        # utilizo un while true para ingresar al bucle
         if viajes > 0:
-        #si viajes es mayor a 0 ingresa a verificar que cantidad de viajes se hicieron
+            # si viajes es mayor a 0 ingresa a verificar que cantidad de viajes se hicieron
             if viajes > 40:
                 return viajes * (0.60 * tarifa)
             elif viajes > 30 and viajes < 41:
@@ -23,12 +23,12 @@ def control_de_gastos_viajes(viajes: int, tarifa: int) -> float:
             elif viajes > 0 and viajes < 21:
                 return viajes * (1.0 * tarifa)
         else:
-            return "Error"    
+            return "Error"
 
 
 def comprobacion(viajes: int, tarifa: int) -> None:
-    assert(type(viajes) == int)
-    assert(type(tarifa) == int)
+    assert type(viajes) == int
+    assert type(tarifa) == int
     return None
 
 

@@ -10,43 +10,48 @@ abona con $5000, el vuelto debe contener 1 billete de $1000, 1 billete de $500, 
 billete de $200, 1 billete de $100 y 3 billetes de $10
 """
 
-def transaccion(total_compra: int, dinero_recibido:int) -> int:
+
+def transaccion(total_compra: int, dinero_recibido: int) -> int:
     """
     total_compra: este dato debe ser un numero positivo de tipo int y refleja el monto
                 que el cliente tiene que pagar por la compra de los electrodomesticos
-                
+
     dinero_recibido: este dato debe ser un numero positivo de tipo int y recibe el monto
                     que el cliente dio a cambio del total de la compra.
-                        
-    Para que la funcion se pueda ejecutar, el dinero recibido debe ser mayor al total de la compra 
-    y para que se pueda emitir el cambio correctamente, el total de la compra debe ser 
+
+    Para que la funcion se pueda ejecutar, el dinero recibido debe ser mayor al total de la compra
+    y para que se pueda emitir el cambio correctamente, el total de la compra debe ser
     multiplo de 10
     """
     vuelto = []
     billetes = []
     tupla_billetes = (5000, 1000, 500, 200, 100, 50, 10)
-    resto = dinero_recibido - total_compra#en esta variable guardo resto el dinero recibido con el total de la compra
+    resto = (
+        dinero_recibido - total_compra
+    )  # en esta variable guardo resto el dinero recibido con el total de la compra
     if dinero_recibido > total_compra and total_compra % 10 == 0:
-        #en esta linea verifico si el dinero con el que se paga es mayor al total de la compra 
-        #también verifico si el total de la compra es múltiplo de 10, en el caso de no ser así,
-        #no se podrá emitir el cambio 
+        # en esta linea verifico si el dinero con el que se paga es mayor al total de la compra
+        # también verifico si el total de la compra es múltiplo de 10, en el caso de no ser así,
+        # no se podrá emitir el cambio
         for i in tupla_billetes:
-            #recorro cada índice de la tupla
+            # recorro cada índice de la tupla
             if resto >= i:
-                #verifico si el resto es mayor o igual al [i] en cada iteracion
-                vuelto.append(resto//i)
-                #appendeo las veces que el valor que está en el resto entre en el [i]
+                # verifico si el resto es mayor o igual al [i] en cada iteracion
+                vuelto.append(resto // i)
+                # appendeo las veces que el valor que está en el resto entre en el [i]
                 billetes.append(i)
-                #appendeo el valor del billete
+                # appendeo el valor del billete
                 resto = resto % i
-                #el nuevo resto se calcula con el módulo de [i]
-        print(vuelto, billetes)#aca printeo para ver las listas finales, no se como podría mostrar el msj final
+                # el nuevo resto se calcula con el módulo de [i]
+        print(
+            vuelto, billetes
+        )  # aca printeo para ver las listas finales, no se como podría mostrar el msj final
     else:
         print("Error")
     return None
 
 
-def verificacion_valores(total_compra:int, dinero_recibido:int) -> bool:
+def verificacion_valores(total_compra: int, dinero_recibido: int) -> bool:
     """
     Esta funcion verifica si los parámetros son válidos
     """
@@ -65,6 +70,6 @@ def menu():
             break
         else:
             print("Los datos son erroneos")
-                
+
 
 menu()
