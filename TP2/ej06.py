@@ -28,10 +28,7 @@ def comportamiento():
 
 
 def menu():
-    opciones = [
-        "Normalizar la lista",
-        "Salir"
-    ]
+    opciones = ["Normalizar la lista", "Salir"]
     lista = [16, 12, 8, 4]
     lista_eliminar = []
     while True:

@@ -52,9 +52,9 @@ def menu():
             case 2:
                 lista_eliminar = numeros_a_eliminar(n, lista_eliminar)
                 lista_nueva = list(filter(lambda x: x not in lista_eliminar, lista))
-                #uso filter para corroborar los elementos que hay en lista_eliminar y lista
-                #si los elementos de lista no están en lista eliminar, entonces que los filtre
-                #recibe como argumentos una funcion lambda y una lista
+                # uso filter para corroborar los elementos que hay en lista_eliminar y lista
+                # si los elementos de lista no están en lista eliminar, entonces que los filtre
+                # recibe como argumentos una funcion lambda y una lista
                 print(lista_eliminar)
                 print(lista_nueva)
                 print()
