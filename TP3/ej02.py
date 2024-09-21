@@ -12,7 +12,7 @@ def verificar_n(n: int) -> bool:
         n (int): recibe como parametro un número entero
 
     Returns:
-        bool: retorna true si se cumple la condicion, caso contrario, false
+        bool: retorna true si se cumple la condicion si es natural, caso contrario, false
     """
     if n > 0:
         return True
@@ -22,64 +22,128 @@ def verificar_n(n: int) -> bool:
 def crear_matriz(n: int) -> list:
     """
     Args:
-        n (int): recibe como parametro un numero entero
+        n (int): recibe como parametro un numero entero para crear la matriz de N x N
 
     Returns:
-        list: retorna una matriz con las filas y columnas correspondientes
+        None: retorna None 
     """
-    matriz = [[0 for _ in range(n)] for _ in range(n)]
-    # genero una secuencia de numeros desde 0 hasta n -1 en el primer for dentro de la lista
-    # en el segundo for realizo lo mismo
-    return matriz
-
+    while True:
+        if verificar_n(n):
+            matriz = [[0 for _ in range(n)] for _ in range(n)]
+            # genero una secuencia de numeros desde 0 hasta n -1 en el primer for dentro de la lista
+            # en el segundo for realizo lo mismo
+            return matriz
+        else:
+            print("Ingrese un numero mayor a  0: ")
+    
 
 # A
-def funcion_a(matriz: list) -> list:
+def funcion_a(n:int) -> list:
     """
+
     Args:
-        matriz (list): recibe como parametro la matriz realizada
+        n (int): recibe como parámetro N que es el tamaño que se utiliza para crear la matriz
 
     Returns:
         list: retorna la matriz con los datos modificados
     """
-    for i in range(len(matriz)):
+    matriz_a = crear_matriz(n)
+    for i in range(n):
         # recorro la matriz
-        matriz[i][i] = 1 + 2 * i
+        matriz_a[i][i] = 1 + 2 * i
         # selecciono el valor correspondiente y le asigno un nuevo valor
-    return matriz
+    return matriz_a
 
 
 # B
-def funcion_b(matriz: list, n:int) -> list:
-    """
+def funcion_b(n:int) -> list:
+    """_summary_
 
     Args:
-        matriz (list): recibo la matriz con los datos en 0
-        n (int): recibo este parametro para usarlo en una fórmula para cambiar el valor de una lista
+        n (int): recibe como parámetro N que es el tamaño que se utiliza para crear la matriz
 
     Returns:
-        list: retorno la matriz con los datos actualizados
+        list: retorna la matriz con los datos modificados
     """
-    for i in range(len(matriz)):
+    matriz_b = crear_matriz(n)
+    for i in range(n):
         #recorro la matriz
-        matriz[i][-1 - i] = 3 ** (n - i)
+        matriz_b[i][-1 - i] = 3 ** (3 - i)
         #recorro toda las listas y cada vez que itera, lo hace por cada lista y cada elemento de la lista
         #la posicion [-1-i] es igual a  decir la ultima posicion menos el valor de i
         #modifico el valor final
-    return matriz
+    return matriz_b
 
 #C
-def funcion_c(matriz:list) -> list:
-    """
+def funcion_c(n:int) -> list:
+    """_summary_
+
     Args:
-        matriz (list): recibe como parametro la matriz con datos en 0
+        n (int): recibe como parámetro N que es el tamaño que se utiliza para crear la matriz
 
     Returns:
-        list: retorna la matriz con los datos actualizados
+        list: retorna la matriz con los datos modificados
     """
-    for i in range(len(matriz)):
-        matriz[i][i] = 4-i
-    return matriz
+    matriz_c = crear_matriz(n)
+    for i in range(n):
+        for j in range(i + 1):
+            #itero desde el elemento i+1, incrementando cada vez que vuelve a empezar el bucle
+            matriz_c[i][j] = n - i
+            #el valor asignado es el ingresado en pantalla - i
+    return matriz_c
+
+#D
+def funcion_d(n:int) -> list:
+    """
+
+    Args:
+        n (int): recibe como parámetro N que es el tamaño que se utiliza para crear la matriz
+
+    Returns:
+        list: retorna la matriz con los datos modificados
+    """
+    matriz_d = crear_matriz(n)
+    inicio = 8
+    for i in range(n):
+        for j in range(n):
+            matriz_d[i][j] = inicio
+            #a toda la lista le ingreso el valor de inicio
+        inicio //= 2
+        #por cada iteracion en el primer for, a inicio le reasigno el valor
+    return matriz_d
+#E
+def funcion_e(n: int) -> list:
+    pass
+#F
+def funcion_f(n:int) -> list:
+    """
+
+    Args:
+        n (int): recibe como parámetro N que es el tamaño que se utiliza para crear la matriz
+
+    Returns:
+        list: retorna la matriz con los datos modificados
+    """
+    matriz_f = crear_matriz(n)
+    inicio = 1
+    for i in range(n):
+        for j in range(i+1):
+            matriz_f[i][-1+j] = inicio + i + j
+            #tomo el ultimo indice y le resto la posicion de j en cada iteracion
+            #le asigno el valor de la suma de inicio mas las iteraciones correspondientes
+        inicio = inicio + j
+        #por cada iteracion en el primer for, reasigno la variable inicio y le sumo j
+    return matriz_f
+#G
+def funcion_g():
+    pass
+#H
+def funcion_h():
+    pass
+#I
+def funcion_i():
+    pass
+
 def menu():
     opciones = [
         "Funcion A",
@@ -95,24 +159,23 @@ def menu():
     ]
     n = int(input("Ingrese el tamaño de la matriz: "))
     if verificar_n(n):
-        matriz = crear_matriz(n)
         while True:
             for i, opcion in enumerate(opciones):
                 print(f"{i+1} - {opcion}")
             ingresar_opcion = int(input("Ingrese su opcion: "))
             match ingresar_opcion:
                 case 1:
-                    print(funcion_a(matriz))
+                    print(funcion_a(n))
                 case 2:
-                    print(funcion_b(matriz, n))
+                    print(funcion_b(n))
                 case 3:
-                    print(funcion_c(matriz))
+                    print(funcion_c(n))
                 case 4:
-                    pass
+                    print(funcion_d(n))
                 case 5:
                     pass
                 case 6:
-                    pass
+                    print(funcion_f(n))
                 case 7:
                     pass
                 case 8:
