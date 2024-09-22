@@ -30,8 +30,7 @@ def crear_matriz(n: int) -> list:
     while True:
         if verificar_n(n):
             matriz = [[0 for _ in range(n)] for _ in range(n)]
-            # genero una secuencia de numeros desde 0 hasta n -1 en el primer for dentro de la lista
-            # en el segundo for realizo lo mismo
+            # genero una lista con el elemento 0 n cantidad de veces
             return matriz
         else:
             print("Ingrese un numero mayor a  0: ")
