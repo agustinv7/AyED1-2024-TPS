@@ -15,22 +15,24 @@ def verificar_n(n: int) -> bool:
     Returns:
         bool: retorna true si se cumple la condicion si es natural, caso contrario, false
     """
-    if n > 0:
+    if n >= 0:
         return True
     return False
 
 
 def numeros_random(n: int) -> list:
     """
-
     Args:
         n (int): recibo como parámetro un numero natural para crear una lista
-
     Returns:
         list: retorno la lista creada
     """
-    numeros = list(set(i for i in range(n**2)))
-    return numeros
+    while True:
+        if verificar_n():
+            numeros = list(set(i for i in range(n**2)))
+        return numeros
+    else:
+        print("Numero invalido, ingrese uno mayor o igual 0")
 
 
 def rellenar_matriz(n: int) -> list:
