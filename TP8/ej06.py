@@ -1,0 +1,5 @@
+frase = input("Ingrese una frase: ")
+frase_split = set(frase.split())
+print(frase_split)
+frase_set = sorted(frase_split, key=len, reverse=False)
+print(frase_set)

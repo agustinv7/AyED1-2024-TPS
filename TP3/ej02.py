@@ -5,6 +5,8 @@ que  las  invoque  e  imprima  por  pantalla.  El  tamaño  de  las  matrices  d
 cerse como N x N, donde N se ingresa a través del teclado
 """
 
+from tabulate import tabulate
+
 
 def verificar_n(n: int) -> bool:
     """
@@ -33,7 +35,7 @@ def crear_matriz(n: int) -> list:
             # genero una lista con el elemento 0 n cantidad de veces
             return matriz
         else:
-            print("Ingrese un numero mayor a  0: ")
+            return crear_matriz(n)
 
 
 # A
@@ -49,8 +51,9 @@ def funcion_a(n: int) -> list:
     matriz_a = crear_matriz(n)
     for i in range(n):
         # recorro la matriz
-        matriz_a[i][i] = 1 + 2 * i
+        matriz_a[i][i] = 2 + i * 1
         # selecciono el valor correspondiente y le asigno un nuevo valor
+    print(tabulate(matriz_a, tablefmt="pretty"))
     return matriz_a
 
 
@@ -71,6 +74,7 @@ def funcion_b(n: int) -> list:
         # recorro toda las listas y cada vez que itera, lo hace por cada lista y cada elemento de la lista
         # la posicion [-1-i] es igual a  decir la ultima posicion menos el valor de i
         # modifico el valor final
+    print(tabulate(matriz_b, tablefmt="pretty"))
     return matriz_b
 
 
@@ -90,6 +94,7 @@ def funcion_c(n: int) -> list:
             # itero desde el elemento i+1, incrementando cada vez que vuelve a empezar el bucle
             matriz_c[i][j] = n - i
             # el valor asignado es el ingresado en pantalla - i
+    print(tabulate(matriz_c, tablefmt="pretty"))
     return matriz_c
 
 
@@ -111,6 +116,7 @@ def funcion_d(n: int) -> list:
             # a toda la lista le ingreso el valor de inicio
         inicio //= 2
         # por cada iteracion en el primer for, a inicio le reasigno el valor
+    print(tabulate(matriz_d, tablefmt="pretty"))
     return matriz_d
 
 
@@ -143,6 +149,7 @@ def funcion_e(n: int) -> list:
                 inicio = inicio + 1
                 # guardo y sumo 1 al valor anterior para que en la iteracion posterior
                 # se agregue el numero correspondiente
+    print(tabulate(matriz_e, tablefmt="pretty"))
     return matriz_e
 
 
@@ -165,6 +172,7 @@ def funcion_f(n: int) -> list:
             # le asigno el valor de la suma de inicio mas las iteraciones correspondientes
         inicio = inicio + j
         # por cada iteracion en el primer for, reasigno la variable inicio y le sumo j
+    print(tabulate(matriz_f, tablefmt="pretty"))
     return matriz_f
 
 
@@ -204,17 +212,17 @@ def menu():
             ingresar_opcion = int(input("Ingrese su opcion: "))
             match ingresar_opcion:
                 case 1:
-                    print(funcion_a(n))
+                    funcion_a(n)
                 case 2:
-                    print(funcion_b(n))
+                    funcion_b(n)
                 case 3:
-                    print(funcion_c(n))
+                    funcion_c(n)
                 case 4:
-                    print(funcion_d(n))
+                    funcion_d(n)
                 case 5:
-                    print(funcion_e(n))
+                    funcion_e(n)
                 case 6:
-                    print(funcion_f(n))
+                    funcion_f(n)
                 case 7:
                     pass
                 case 8:
