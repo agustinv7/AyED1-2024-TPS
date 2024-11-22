@@ -142,8 +142,8 @@ def menu() -> None:
             case 4:
                 hora_1 = verificacion_input("Ingrese la primer hora: ")
                 minuto_1 = verificacion_input("Ingrese los primeros minutos: ")
-                hora_2 = verificacion_input("Ingrese la segunda hora")
-                minuto_2 = verificacion_input("Ingrese las segundas horas: ")
+                hora_2 = verificacion_input("Ingrese la segunda hora: ")
+                minuto_2 = verificacion_input("Ingrese los segundas : ")
                 sumar_horarios(hora_1, minuto_1, hora_2, minuto_2)
             case _:
                 print("Opcion no valida. \n")
